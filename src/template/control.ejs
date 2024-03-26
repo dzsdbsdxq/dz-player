@@ -1,0 +1,29 @@
+<div class="dz-player-play-icon"></div>
+<div class="dz-player-control-bar" data-type="<%= locals.srcType %>">
+  <div class="control-bar-left">
+    <div class="control-play"></div>
+    <% if(locals.srcType == "hls"){ %>
+      <div alt="刷新" style="display: none;" class="control-flush"></div>
+      <div class="live-text">LIVE</div>
+    <% } else { %>
+      <input type="range" class="dz-player-seek-slider" min="0" max="100" step="any" value="0" />
+      <span class="dz-player-play-time-tip">0.0</span>
+      <% if(locals.playTime){ %>
+        <span class="dz-player-play-time">00:00 / 00:00</span>
+      <% } %>
+    <% } %>
+  </div>
+  <div class="control-bar-right">
+    <!-- 音量控制 -->
+    <% if(locals.volumeControl){ %>
+      <div class="dz-player-volume-bar">
+        <i class="dz-player-volume-icon"></i>
+        <input type="range" class="dz-player-volume-slider" min="0" max="1" step="0.01" value="<%= locals.volume %>" />
+      </div>
+    <% } %>
+    <% if(locals.fullScreenControl){ %>
+      <i class="dz-player-fullscreen"></i>
+    <% } %>
+  </div>
+</div>
+<div class="dz-player-loading"></div>
