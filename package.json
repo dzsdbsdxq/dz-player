@@ -1,6 +1,6 @@
 {
   "name": "dz-player",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "dz-player",
   "main": "build/index.js",
   "jsnext:main": "build/index.esm.js",
@@ -13,8 +13,9 @@
     "clean": "rimraf ./build",
     "lint": "tslint -c tslint.json src/**/**.ts",
     "build": "npm run clean && rollup -c rollup.config.js",
-    "release": "standard-version && npm run build && npm run publish",
-    "publish": "node package.js"
+    "release": "standard-version && npm run build && npm run create",
+    "create": "node package.js",
+    "pub": "cd build && npm publish"
   },
   "repository": {
     "type": "git",
