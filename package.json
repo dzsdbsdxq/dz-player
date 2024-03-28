@@ -1,6 +1,6 @@
 {
   "name": "dz-player",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "description": "dz-player",
   "main": "build/index.js",
   "jsnext:main": "build/index.esm.js",
