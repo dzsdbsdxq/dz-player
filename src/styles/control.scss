@@ -28,6 +28,32 @@
   color: #fff;
   border-radius: 12px !important;
 }
+@mixin playerCustom {
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  height: 20px;
+  margin-right: 15px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+@mixin playerCustomSpan {
+  font-size: 12px;
+  margin-left:5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 // 控制面板
 .dz-player-hide-controller {
     .dz-player-control-panel {
@@ -114,6 +140,7 @@
         justify-content: flex-start;
         align-items: center;
         align-content: center;
+        margin-bottom: 6px;
         .dz-player-seek-slider {
           width: 100%;
           flex: 1;
@@ -154,7 +181,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-content: center;
-        padding: 6px 10px 0px 10px;
+        padding: 0px 10px 0px 10px;
         .control-bar-left{
           flex: 1;
           display: flex;
@@ -163,6 +190,12 @@
           justify-content: flex-start;
           align-items: center;
           align-content: center;
+          .dz-player-custom-icon{
+            @include playerCustom;
+            span {
+              @include playerCustomSpan;
+            }
+          }
           .control-play{
             width: 20px;
             height: 20px;
@@ -226,28 +259,9 @@
           align-items: center;
           align-content: center;
           .dz-player-custom-icon{
-            position: relative;
-            display: inline-block;
-            font-size: 12px;
-            height: 20px;
-            margin-right: 15px;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
+            @include playerCustom;
             span {
-              font-size: 12px;
-              display: flex;
-              flex-direction: row;
-              flex-wrap: nowrap;
-              justify-content: center;
-              align-items: center;
-              align-content: center;
+              @include playerCustomSpan;
             }
           }
           .dz-player-playbackRatio {

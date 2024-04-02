@@ -208,7 +208,7 @@ try {
 
 }
 
-___$insertStylesToHeader(".dz-player-control-bar input[type='range'] {\n  height: 10px;\n  -webkit-appearance: none;\n  appearance: none;\n  background: transparent;\n  cursor: pointer; }\n  .dz-player-control-bar input[type='range']:focus {\n    outline: none; }\n  .dz-player-control-bar input[type='range']::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 4px;\n    box-shadow: 0px 0px 0px #000000;\n    background: #d3d3d3;\n    border-radius: 1px;\n    border: 0px solid #000000; }\n  .dz-player-control-bar input[type='range']::-moz-range-track {\n    width: 100%;\n    height: 4px;\n    box-shadow: 0px 0px 0px #000000;\n    background: #d3d3d3;\n    border-radius: 1px;\n    border: 0px solid #000000; }\n  .dz-player-control-bar input[type='range']::-ms-track {\n    width: 100%;\n    height: 4px;\n    box-shadow: 0px 0px 0px #000000;\n    background: #d3d3d3;\n    border-radius: 1px;\n    border: 0px solid #000000; }\n  .dz-player-control-bar input[type='range']::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    box-shadow: 0px 0px 0px #000000;\n    border: 1px solid #0163a5;\n    height: 12px;\n    width: 12px;\n    border-radius: 20px;\n    margin-top: -4px;\n    background-color: #fff;\n    border: 1px solid transparent;\n    border-image: linear-gradient(#fff, #fff) 0 fill/4 12 4 0/0px 0px 0 3000px; }\n  .dz-player-control-bar input[type='range']::-moz-range-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    box-shadow: 0px 0px 0px #000000;\n    border: 1px solid #0163a5;\n    height: 12px;\n    width: 12px;\n    border-radius: 20px;\n    margin-top: -4px;\n    background-color: #fff;\n    border: 1px solid transparent;\n    border-image: linear-gradient(#fff, #fff) 0 fill/4 12 4 0/0px 0px 0 3000px; }\n  .dz-player-control-bar input[type='range']::-ms-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    box-shadow: 0px 0px 0px #000000;\n    border: 1px solid #0163a5;\n    height: 12px;\n    width: 12px;\n    border-radius: 20px;\n    margin-top: -4px;\n    background-color: #fff;\n    border: 1px solid transparent;\n    border-image: linear-gradient(#fff, #fff) 0 fill/4 12 4 0/0px 0px 0 3000px; }\n  .dz-player-control-bar input[type='range']::-webkit-slider-container {\n    overflow: hidden; }\n\n.dz-player-watermark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-size: 100%;\n  background-repeat: no-repeat;\n  pointer-events: none; }\n\n.dz-player-hide-controller .dz-player-control-panel {\n  display: none; }\n\n.dz-player-control-panel {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  bottom: 0;\n  left: 0; }\n  .dz-player-control-panel .dz-player-play-icon,\n  .dz-player-control-panel .dz-player-loading {\n    color: white;\n    cursor: pointer;\n    overflow: hidden;\n    position: absolute;\n    left: 0;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    width: 50px;\n    height: 50px;\n    margin: auto;\n    box-sizing: border-box;\n    display: grid;\n    place-content: center;\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }\n    .dz-player-control-panel .dz-player-play-icon svg,\n    .dz-player-control-panel .dz-player-loading svg {\n      width: 50px;\n      height: 50px; }\n\n@keyframes dz-player-loading-keyframes {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n  .dz-player-control-panel .dz-player-loading {\n    pointer-events: none;\n    background-color: rgba(255, 255, 255, 0.4); }\n    .dz-player-control-panel .dz-player-loading svg {\n      animation: dz-player-loading-keyframes 1s infinite;\n      width: 40px;\n      height: 40px; }\n  .dz-player-control-panel .dz-player-control-bar {\n    position: absolute;\n    bottom: 0px;\n    left: 0;\n    width: 100%;\n    height: 50px;\n    user-select: none;\n    transition: all 0.5s ease;\n    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5));\n    color: white;\n    padding: 0;\n    box-sizing: border-box;\n    display: flex;\n    gap: 0px 8px;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: wrap;\n    align-content: center; }\n    .dz-player-control-panel .dz-player-control-bar .control-bar-progress {\n      position: relative;\n      width: 100%;\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      justify-content: flex-start;\n      align-items: center;\n      align-content: center; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-progress .dz-player-seek-slider {\n        width: 100%;\n        flex: 1; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-progress .dz-player-play-time-tip {\n        display: none;\n        width: 50px;\n        text-align: center;\n        position: absolute;\n        top: -38px;\n        left: -10px;\n        pointer-events: none;\n        background-color: #000;\n        color: #fff;\n        padding: 5px;\n        border-radius: 4px;\n        font-size: 14px; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-progress .dz-player-play-time-tip::after {\n          content: '';\n          position: absolute;\n          top: 100%;\n          left: 50%;\n          transform: translateX(-50%);\n          border-width: 6px;\n          border-style: solid;\n          border-color: #000 transparent transparent transparent; }\n    .dz-player-control-panel .dz-player-control-bar .control-bar-options {\n      width: 100%;\n      position: relative;\n      display: flex;\n      gap: 8px;\n      justify-content: space-between;\n      align-items: center;\n      flex-direction: row;\n      flex-wrap: wrap;\n      align-content: center;\n      padding: 6px 10px 0px 10px; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left {\n        flex: 1;\n        display: flex;\n        flex-direction: row;\n        flex-wrap: wrap;\n        justify-content: flex-start;\n        align-items: center;\n        align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-play {\n          width: 20px;\n          height: 20px;\n          margin-right: 10px;\n          cursor: pointer; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-play svg {\n            width: 100%;\n            height: 100%; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-flush {\n          width: 20px;\n          height: 20px;\n          margin-right: 10px;\n          transition: all .3s;\n          -webkit-transition: all .3s;\n          cursor: pointer; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-flush svg {\n            width: 100%;\n            height: 100%; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-flush:hover {\n            transform: rotate(180deg);\n            -webkit-transform: rotate(180deg); }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .live-text {\n          white-space: nowrap;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n          -ms-flex-align: center;\n          align-items: center;\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          margin: 0;\n          padding: 0px;\n          scale: .8;\n          color: #fff;\n          font-size: 16px; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .live-text img {\n            width: 14px;\n            height: 14px; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .dz-player-play-time {\n          font-family: Menlo, Courier New, Consolas, Lucida Console, Courier, monospace;\n          font-size: 14px;\n          text-align: center;\n          user-select: none;\n          min-width: 120px; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right {\n        display: flex;\n        flex-direction: row;\n        flex-wrap: wrap;\n        justify-content: flex-end;\n        align-items: center;\n        align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-custom-icon {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-custom-icon span {\n            font-size: 12px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio_over {\n            display: none;\n            width: 100%;\n            position: absolute;\n            height: 50px;\n            background: transparent;\n            bottom: 0;\n            left: 0; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio-text {\n            font-size: 12px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box {\n            display: none;\n            position: absolute;\n            bottom: 40px;\n            width: 60px;\n            max-width: 60px;\n            background: #33343f;\n            padding: 20px 0;\n            right: 50%;\n            transform: translate(50%);\n            height: auto;\n            color: #fff;\n            border-radius: 12px !important; }\n            .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap {\n              color: #fff;\n              font-size: 12px;\n              font-weight: 500;\n              line-height: 14px; }\n              .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item {\n                width: 100%;\n                text-align: center;\n                opacity: 0.7;\n                cursor: pointer;\n                margin-bottom: 16px;\n                line-height: 18px; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item:last-child {\n                  margin-bottom: 0; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item:hover {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item.select {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList_over {\n            width: 100%;\n            display: none;\n            position: absolute;\n            height: 50px;\n            background: transparent;\n            bottom: 0;\n            left: 0; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList-text {\n            font-size: 12px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box {\n            display: none;\n            position: absolute;\n            bottom: 40px;\n            width: 60px;\n            max-width: 60px;\n            background: #33343f;\n            padding: 20px 0;\n            right: 50%;\n            transform: translate(50%);\n            height: auto;\n            color: #fff;\n            border-radius: 12px !important; }\n            .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap {\n              color: #fff;\n              font-size: 12px;\n              font-weight: 500;\n              line-height: 14px; }\n              .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item {\n                width: 100%;\n                text-align: center;\n                opacity: 0.7;\n                cursor: pointer;\n                margin-bottom: 16px;\n                line-height: 18px; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item:last-child {\n                  margin-bottom: 0; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item:hover {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item.select {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right input.dz-player-volume-slider {\n          width: 0px;\n          transition: all 0.5s ease; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-volume-bar {\n          margin-right: 15px;\n          max-width: 80px;\n          display: flex;\n          justify-content: space-between;\n          align-items: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-volume-icon,\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-fullscreen {\n          display: inline-block;\n          width: 20px;\n          height: 20px;\n          text-align: center;\n          color: white;\n          cursor: pointer; }\n\n.dz-player-container {\n  position: relative;\n  overflow: hidden;\n  background-color: #000;\n  font-size: 12px !important; }\n  .dz-player-container .dz-player-video {\n    width: 100%;\n    height: 100%;\n    transform: translate(0px, 0px); }\n");
+___$insertStylesToHeader(".dz-player-control-bar input[type='range'] {\n  height: 10px;\n  -webkit-appearance: none;\n  appearance: none;\n  background: transparent;\n  cursor: pointer; }\n  .dz-player-control-bar input[type='range']:focus {\n    outline: none; }\n  .dz-player-control-bar input[type='range']::-webkit-slider-runnable-track {\n    width: 100%;\n    height: 4px;\n    box-shadow: 0px 0px 0px #000000;\n    background: #d3d3d3;\n    border-radius: 1px;\n    border: 0px solid #000000; }\n  .dz-player-control-bar input[type='range']::-moz-range-track {\n    width: 100%;\n    height: 4px;\n    box-shadow: 0px 0px 0px #000000;\n    background: #d3d3d3;\n    border-radius: 1px;\n    border: 0px solid #000000; }\n  .dz-player-control-bar input[type='range']::-ms-track {\n    width: 100%;\n    height: 4px;\n    box-shadow: 0px 0px 0px #000000;\n    background: #d3d3d3;\n    border-radius: 1px;\n    border: 0px solid #000000; }\n  .dz-player-control-bar input[type='range']::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    box-shadow: 0px 0px 0px #000000;\n    border: 1px solid #0163a5;\n    height: 12px;\n    width: 12px;\n    border-radius: 20px;\n    margin-top: -4px;\n    background-color: #fff;\n    border: 1px solid transparent;\n    border-image: linear-gradient(#fff, #fff) 0 fill/4 12 4 0/0px 0px 0 3000px; }\n  .dz-player-control-bar input[type='range']::-moz-range-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    box-shadow: 0px 0px 0px #000000;\n    border: 1px solid #0163a5;\n    height: 12px;\n    width: 12px;\n    border-radius: 20px;\n    margin-top: -4px;\n    background-color: #fff;\n    border: 1px solid transparent;\n    border-image: linear-gradient(#fff, #fff) 0 fill/4 12 4 0/0px 0px 0 3000px; }\n  .dz-player-control-bar input[type='range']::-ms-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    box-shadow: 0px 0px 0px #000000;\n    border: 1px solid #0163a5;\n    height: 12px;\n    width: 12px;\n    border-radius: 20px;\n    margin-top: -4px;\n    background-color: #fff;\n    border: 1px solid transparent;\n    border-image: linear-gradient(#fff, #fff) 0 fill/4 12 4 0/0px 0px 0 3000px; }\n  .dz-player-control-bar input[type='range']::-webkit-slider-container {\n    overflow: hidden; }\n\n.dz-player-watermark {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-size: 100%;\n  background-repeat: no-repeat;\n  pointer-events: none; }\n\n.dz-player-hide-controller .dz-player-control-panel {\n  display: none; }\n\n.dz-player-control-panel {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  bottom: 0;\n  left: 0; }\n  .dz-player-control-panel .dz-player-play-icon,\n  .dz-player-control-panel .dz-player-loading {\n    color: white;\n    cursor: pointer;\n    overflow: hidden;\n    position: absolute;\n    left: 0;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    width: 50px;\n    height: 50px;\n    margin: auto;\n    box-sizing: border-box;\n    display: grid;\n    place-content: center;\n    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }\n    .dz-player-control-panel .dz-player-play-icon svg,\n    .dz-player-control-panel .dz-player-loading svg {\n      width: 50px;\n      height: 50px; }\n\n@keyframes dz-player-loading-keyframes {\n  0% {\n    transform: rotate(0deg); }\n  100% {\n    transform: rotate(360deg); } }\n  .dz-player-control-panel .dz-player-loading {\n    pointer-events: none;\n    background-color: rgba(255, 255, 255, 0.4); }\n    .dz-player-control-panel .dz-player-loading svg {\n      animation: dz-player-loading-keyframes 1s infinite;\n      width: 40px;\n      height: 40px; }\n  .dz-player-control-panel .dz-player-control-bar {\n    position: absolute;\n    bottom: 0px;\n    left: 0;\n    width: 100%;\n    height: 50px;\n    user-select: none;\n    transition: all 0.5s ease;\n    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5));\n    color: white;\n    padding: 0;\n    box-sizing: border-box;\n    display: flex;\n    gap: 0px 8px;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: wrap;\n    align-content: center; }\n    .dz-player-control-panel .dz-player-control-bar .control-bar-progress {\n      position: relative;\n      width: 100%;\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      justify-content: flex-start;\n      align-items: center;\n      align-content: center;\n      margin-bottom: 6px; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-progress .dz-player-seek-slider {\n        width: 100%;\n        flex: 1; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-progress .dz-player-play-time-tip {\n        display: none;\n        width: 50px;\n        text-align: center;\n        position: absolute;\n        top: -38px;\n        left: -10px;\n        pointer-events: none;\n        background-color: #000;\n        color: #fff;\n        padding: 5px;\n        border-radius: 4px;\n        font-size: 14px; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-progress .dz-player-play-time-tip::after {\n          content: '';\n          position: absolute;\n          top: 100%;\n          left: 50%;\n          transform: translateX(-50%);\n          border-width: 6px;\n          border-style: solid;\n          border-color: #000 transparent transparent transparent; }\n    .dz-player-control-panel .dz-player-control-bar .control-bar-options {\n      width: 100%;\n      position: relative;\n      display: flex;\n      gap: 8px;\n      justify-content: space-between;\n      align-items: center;\n      flex-direction: row;\n      flex-wrap: wrap;\n      align-content: center;\n      padding: 0px 10px 0px 10px; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left {\n        flex: 1;\n        display: flex;\n        flex-direction: row;\n        flex-wrap: wrap;\n        justify-content: flex-start;\n        align-items: center;\n        align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .dz-player-custom-icon {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .dz-player-custom-icon span {\n            font-size: 12px;\n            margin-left: 5px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-play {\n          width: 20px;\n          height: 20px;\n          margin-right: 10px;\n          cursor: pointer; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-play svg {\n            width: 100%;\n            height: 100%; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-flush {\n          width: 20px;\n          height: 20px;\n          margin-right: 10px;\n          transition: all .3s;\n          -webkit-transition: all .3s;\n          cursor: pointer; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-flush svg {\n            width: 100%;\n            height: 100%; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .control-flush:hover {\n            transform: rotate(180deg);\n            -webkit-transform: rotate(180deg); }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .live-text {\n          white-space: nowrap;\n          -webkit-box-align: center;\n          -webkit-align-items: center;\n          -ms-flex-align: center;\n          align-items: center;\n          display: -webkit-box;\n          display: -webkit-flex;\n          display: -ms-flexbox;\n          display: flex;\n          margin: 0;\n          padding: 0px;\n          scale: .8;\n          color: #fff;\n          font-size: 16px; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .live-text img {\n            width: 14px;\n            height: 14px; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-left .dz-player-play-time {\n          font-family: Menlo, Courier New, Consolas, Lucida Console, Courier, monospace;\n          font-size: 14px;\n          text-align: center;\n          user-select: none;\n          min-width: 120px; }\n      .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right {\n        display: flex;\n        flex-direction: row;\n        flex-wrap: wrap;\n        justify-content: flex-end;\n        align-items: center;\n        align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-custom-icon {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-custom-icon span {\n            font-size: 12px;\n            margin-left: 5px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio_over {\n            display: none;\n            width: 100%;\n            position: absolute;\n            height: 50px;\n            background: transparent;\n            bottom: 0;\n            left: 0; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio-text {\n            font-size: 12px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box {\n            display: none;\n            position: absolute;\n            bottom: 40px;\n            width: 60px;\n            max-width: 60px;\n            background: #33343f;\n            padding: 20px 0;\n            right: 50%;\n            transform: translate(50%);\n            height: auto;\n            color: #fff;\n            border-radius: 12px !important; }\n            .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap {\n              color: #fff;\n              font-size: 12px;\n              font-weight: 500;\n              line-height: 14px; }\n              .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item {\n                width: 100%;\n                text-align: center;\n                opacity: 0.7;\n                cursor: pointer;\n                margin-bottom: 16px;\n                line-height: 18px; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item:last-child {\n                  margin-bottom: 0; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item:hover {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-playbackRatio .playbackRatio-box__wrap-item.select {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList {\n          position: relative;\n          display: inline-block;\n          font-size: 12px;\n          height: 20px;\n          margin-right: 15px;\n          text-align: center;\n          color: white;\n          cursor: pointer;\n          display: flex;\n          flex-direction: row;\n          flex-wrap: nowrap;\n          justify-content: center;\n          align-items: center;\n          align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList_over {\n            width: 100%;\n            display: none;\n            position: absolute;\n            height: 50px;\n            background: transparent;\n            bottom: 0;\n            left: 0; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList-text {\n            font-size: 12px;\n            display: flex;\n            flex-direction: row;\n            flex-wrap: nowrap;\n            justify-content: center;\n            align-items: center;\n            align-content: center; }\n          .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box {\n            display: none;\n            position: absolute;\n            bottom: 40px;\n            width: 60px;\n            max-width: 60px;\n            background: #33343f;\n            padding: 20px 0;\n            right: 50%;\n            transform: translate(50%);\n            height: auto;\n            color: #fff;\n            border-radius: 12px !important; }\n            .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap {\n              color: #fff;\n              font-size: 12px;\n              font-weight: 500;\n              line-height: 14px; }\n              .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item {\n                width: 100%;\n                text-align: center;\n                opacity: 0.7;\n                cursor: pointer;\n                margin-bottom: 16px;\n                line-height: 18px; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item:last-child {\n                  margin-bottom: 0; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item:hover {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n                .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-videoList .videoList-box__wrap-item.select {\n                  opacity: 1;\n                  color: #fe2c55;\n                  font-weight: 500; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right input.dz-player-volume-slider {\n          width: 0px;\n          transition: all 0.5s ease; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-volume-bar {\n          margin-right: 15px;\n          max-width: 80px;\n          display: flex;\n          justify-content: space-between;\n          align-items: center; }\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-volume-icon,\n        .dz-player-control-panel .dz-player-control-bar .control-bar-options .control-bar-right .dz-player-fullscreen {\n          display: inline-block;\n          width: 20px;\n          height: 20px;\n          text-align: center;\n          color: white;\n          cursor: pointer; }\n\n.dz-player-container {\n  position: relative;\n  overflow: hidden;\n  background-color: #000;\n  font-size: 12px !important; }\n  .dz-player-container .dz-player-video {\n    width: 100%;\n    height: 100%;\n    transform: translate(0px, 0px); }\n");
 
 var play = "<svg viewBox=\"0 0 56 56\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"none\" fill-rule=\"evenodd\"><path d=\"M44.14 11.437a23.03 23.03 0 00-16.352-6.77 23.025 23.025 0 00-16.347 6.77 22.992 22.992 0 00-4.956 7.352 22.963 22.963 0 00-1.818 9c0 3.122.61 6.152 1.818 9.004a22.976 22.976 0 004.956 7.348 22.996 22.996 0 007.348 4.955 22.963 22.963 0 009 1.819 22.96 22.96 0 009.004-1.819 23.037 23.037 0 007.348-4.955 22.976 22.976 0 004.955-7.348 22.967 22.967 0 001.819-9.004c0-3.119-.611-6.148-1.819-9a22.992 22.992 0 00-4.955-7.352z\" stroke-opacity=\".6\" stroke=\"#FFF\" fill=\"#1B2337\" opacity=\".6\"/><path d=\"M23.524 37.109a1.68 1.68 0 01-1.684 0 1.683 1.683 0 01-.84-1.456V20.349c0-.6.32-1.158.84-1.456a1.68 1.68 0 011.684 0l13.251 7.65a1.684 1.684 0 010 2.914L23.524 37.11z\" fill=\"#FFF\"/></g></svg>";
 
@@ -300,99 +300,111 @@ var _ENCODE_HTML_RULES = {
 function encode_char(c) {
   return _ENCODE_HTML_RULES[c] || c;
 }var __line = 1
-  , __lines = "<% if(locals.showControl){ %>\n<div class=\"dz-player-play-icon\"></div>\n<div\nclass=\"dz-player-control-bar\"\ndata-type=\"<%= locals.srcType %>\"\n<% if(locals.controlStyle){ %> style=\"<%= locals.controlStyle %>\" <% } %>\n>\n<% if(locals.srcType != \"hls\"){ %>\n<div class=\"control-bar-progress\">\n<input type=\"range\" class=\"dz-player-seek-slider\" min=\"0\" max=\"100\" step=\"any\" value=\"0\" />\n<span class=\"dz-player-play-time-tip\">0.0</span>\n</div>\n<% } %>\n<div class=\"control-bar-options\">\n<div class=\"control-bar-left\">\n<div class=\"control-play\"></div>\n<% if(locals.srcType == \"hls\"){ %>\n<div alt=\"刷新\" style=\"display: none;\" class=\"control-flush\"></div>\n<div class=\"live-text\">LIVE</div>\n<% } else { %>\n<% if(locals.playTime){ %>\n<span class=\"dz-player-play-time\">00:00 / 00:00</span>\n<% } %>\n<% } %>\n</div>\n<div class=\"control-bar-right\">\n<% if(locals.videoList){ %>\n<div class=\"dz-player-videoList\">\n<div class=\"dz-player-videoList_over\"></div>\n<div class=\"dz-player-videoList-text\">清晰度</div>\n<div class=\"videoList-box\">\n<div class=\"videoList-box__wrap\">\n<% locals.videoList.forEach(function(video){ %>\n<div class=\"videoList-box__wrap-item <% if(video.default){ %>select <% } %>\"><%- video.label; %></div>\n<% }); %>\n</div>\n</div>\n</div>\n<% } %>\n<% if(locals.ratios){ %>\n<div class=\"dz-player-playbackRatio\">\n<div class=\"dz-player-playbackRatio_over\"></div>\n<div class=\"dz-player-playbackRatio-text\">倍速</div>\n<div class=\"playbackRatio-box\">\n<div class=\"playbackRatio-box__wrap\">\n<% locals.ratios.forEach(function(ratio){ %>\n<div class=\"playbackRatio-box__wrap-item\" data-ratio=\"<%- ratio.value; %>\"><%- ratio.label; %></div>\n<% }); %>\n</div>\n</div>\n</div>\n<% } %>\n<!-- 音量控制 -->\n<% if(locals.volumeControl){ %>\n<div class=\"dz-player-volume-bar\">\n<i class=\"dz-player-volume-icon\"></i>\n<input type=\"range\" class=\"dz-player-volume-slider\" min=\"0\" max=\"1\" step=\"0.01\" value=\"<%= locals.volume %>\" />\n</div>\n<% } %>\n<% if(locals.fullScreenControl){ %>\n<i class=\"dz-player-fullscreen\"></i>\n<% } %>\n</div>\n</div>\n</div>\n<% } %>\n<div class=\"dz-player-loading\"></div>"
+  , __lines = "<% if(locals.showControl){ %>\n<% if(locals.bigPlayControl){ %>\n<div class=\"dz-player-play-icon\"></div>\n<% } %>\n<div\nclass=\"dz-player-control-bar\"\ndata-type=\"<%= locals.srcType %>\"\n<% if(locals.controlStyle){ %> style=\"<%= locals.controlStyle %>\" <% } %>\n>\n<% if(locals.srcType != \"hls\"){ %>\n<div class=\"control-bar-progress\">\n<input type=\"range\" class=\"dz-player-seek-slider\" min=\"0\" max=\"100\" step=\"any\" value=\"0\" />\n<span class=\"dz-player-play-time-tip\">0.0</span>\n</div>\n<% } %>\n<div class=\"control-bar-options\">\n<div class=\"control-bar-left\">\n<div class=\"control-play\"></div>\n<% if(locals.srcType == \"hls\"){ %>\n<% if(locals.flushControl){ %>\n<div alt=\"刷新\" class=\"control-flush\"></div>\n<% } %>\n<div class=\"live-text\" style=\"display: none;\">LIVE</div>\n<% } else { %>\n<% if(locals.playTime){ %>\n<span class=\"dz-player-play-time\">00:00 / 00:00</span>\n<% } %>\n<% } %>\n</div>\n<div class=\"control-bar-right\">\n<% if(locals.videoList){ %>\n<div class=\"dz-player-videoList\">\n<div class=\"dz-player-videoList_over\"></div>\n<div class=\"dz-player-videoList-text\">清晰度</div>\n<div class=\"videoList-box\">\n<div class=\"videoList-box__wrap\">\n<% locals.videoList.forEach(function(video){ %>\n<div class=\"videoList-box__wrap-item <% if(video.default){ %>select <% } %>\"><%- video.label; %></div>\n<% }); %>\n</div>\n</div>\n</div>\n<% } %>\n<% if(locals.ratios){ %>\n<div class=\"dz-player-playbackRatio\">\n<div class=\"dz-player-playbackRatio_over\"></div>\n<div class=\"dz-player-playbackRatio-text\">倍速</div>\n<div class=\"playbackRatio-box\">\n<div class=\"playbackRatio-box__wrap\">\n<% locals.ratios.forEach(function(ratio){ %>\n<div class=\"playbackRatio-box__wrap-item\" data-ratio=\"<%- ratio.value; %>\"><%- ratio.label; %></div>\n<% }); %>\n</div>\n</div>\n</div>\n<% } %>\n<!-- 音量控制 -->\n<% if(locals.volumeControl){ %>\n<div class=\"dz-player-volume-bar\">\n<i class=\"dz-player-volume-icon\"></i>\n<input type=\"range\" class=\"dz-player-volume-slider\" min=\"0\" max=\"1\" step=\"0.01\" value=\"<%= locals.volume %>\" />\n</div>\n<% } %>\n<% if(locals.fullScreenControl){ %>\n<i class=\"dz-player-fullscreen\"></i>\n<% } %>\n</div>\n</div>\n</div>\n<% } %>\n<div class=\"dz-player-loading\"></div>"
   , __filename = undefined;
 try {
   var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s; }
     ;  if(locals.showControl){ 
-    ; __append("\n<div class=\"dz-player-play-icon\"></div>\n<div\nclass=\"dz-player-control-bar\"\ndata-type=\"")
-    ; __line = 5
+    ; __append("\n")
+    ; __line = 2
+    ;  if(locals.bigPlayControl){ 
+    ; __append("\n<div class=\"dz-player-play-icon\"></div>\n")
+    ; __line = 4
+    ;  } 
+    ; __append("\n<div\nclass=\"dz-player-control-bar\"\ndata-type=\"")
+    ; __line = 7
     ; __append(escapeFn( locals.srcType ))
     ; __append("\"\n")
-    ; __line = 6
+    ; __line = 8
     ;  if(locals.controlStyle){ 
     ; __append(" style=\"")
     ; __append(escapeFn( locals.controlStyle ))
     ; __append("\" ")
     ;  } 
     ; __append("\n>\n")
-    ; __line = 8
+    ; __line = 10
     ;  if(locals.srcType != "hls"){ 
     ; __append("\n<div class=\"control-bar-progress\">\n<input type=\"range\" class=\"dz-player-seek-slider\" min=\"0\" max=\"100\" step=\"any\" value=\"0\" />\n<span class=\"dz-player-play-time-tip\">0.0</span>\n</div>\n")
-    ; __line = 13
+    ; __line = 15
     ;  } 
     ; __append("\n<div class=\"control-bar-options\">\n<div class=\"control-bar-left\">\n<div class=\"control-play\"></div>\n")
-    ; __line = 17
+    ; __line = 19
     ;  if(locals.srcType == "hls"){ 
-    ; __append("\n<div alt=\"刷新\" style=\"display: none;\" class=\"control-flush\"></div>\n<div class=\"live-text\">LIVE</div>\n")
+    ; __append("\n")
     ; __line = 20
+    ;  if(locals.flushControl){ 
+    ; __append("\n<div alt=\"刷新\" class=\"control-flush\"></div>\n")
+    ; __line = 22
+    ;  } 
+    ; __append("\n<div class=\"live-text\" style=\"display: none;\">LIVE</div>\n")
+    ; __line = 24
     ;  } else { 
     ; __append("\n")
-    ; __line = 21
+    ; __line = 25
     ;  if(locals.playTime){ 
     ; __append("\n<span class=\"dz-player-play-time\">00:00 / 00:00</span>\n")
-    ; __line = 23
+    ; __line = 27
     ;  } 
     ; __append("\n")
-    ; __line = 24
+    ; __line = 28
     ;  } 
     ; __append("\n</div>\n<div class=\"control-bar-right\">\n")
-    ; __line = 27
+    ; __line = 31
     ;  if(locals.videoList){ 
     ; __append("\n<div class=\"dz-player-videoList\">\n<div class=\"dz-player-videoList_over\"></div>\n<div class=\"dz-player-videoList-text\">清晰度</div>\n<div class=\"videoList-box\">\n<div class=\"videoList-box__wrap\">\n")
-    ; __line = 33
+    ; __line = 37
     ;  locals.videoList.forEach(function(video){ 
     ; __append("\n<div class=\"videoList-box__wrap-item ")
-    ; __line = 34
+    ; __line = 38
     ;  if(video.default){ 
     ; __append("select ")
     ;  } 
     ; __append("\">")
     ; __append( video.label )
     ; __append("</div>\n")
-    ; __line = 35
+    ; __line = 39
     ;  }); 
     ; __append("\n</div>\n</div>\n</div>\n")
-    ; __line = 39
+    ; __line = 43
     ;  } 
     ; __append("\n")
-    ; __line = 40
+    ; __line = 44
     ;  if(locals.ratios){ 
     ; __append("\n<div class=\"dz-player-playbackRatio\">\n<div class=\"dz-player-playbackRatio_over\"></div>\n<div class=\"dz-player-playbackRatio-text\">倍速</div>\n<div class=\"playbackRatio-box\">\n<div class=\"playbackRatio-box__wrap\">\n")
-    ; __line = 46
+    ; __line = 50
     ;  locals.ratios.forEach(function(ratio){ 
     ; __append("\n<div class=\"playbackRatio-box__wrap-item\" data-ratio=\"")
-    ; __line = 47
+    ; __line = 51
     ; __append( ratio.value )
     ; __append("\">")
     ; __append( ratio.label )
     ; __append("</div>\n")
-    ; __line = 48
+    ; __line = 52
     ;  }); 
     ; __append("\n</div>\n</div>\n</div>\n")
-    ; __line = 52
+    ; __line = 56
     ;  } 
     ; __append("\n<!-- 音量控制 -->\n")
-    ; __line = 54
+    ; __line = 58
     ;  if(locals.volumeControl){ 
     ; __append("\n<div class=\"dz-player-volume-bar\">\n<i class=\"dz-player-volume-icon\"></i>\n<input type=\"range\" class=\"dz-player-volume-slider\" min=\"0\" max=\"1\" step=\"0.01\" value=\"")
-    ; __line = 57
+    ; __line = 61
     ; __append(escapeFn( locals.volume ))
     ; __append("\" />\n</div>\n")
-    ; __line = 59
+    ; __line = 63
     ;  } 
     ; __append("\n")
-    ; __line = 60
+    ; __line = 64
     ;  if(locals.fullScreenControl){ 
     ; __append("\n<i class=\"dz-player-fullscreen\"></i>\n")
-    ; __line = 62
-    ;  } 
-    ; __append("\n</div>\n</div>\n</div>\n")
     ; __line = 66
     ;  } 
+    ; __append("\n</div>\n</div>\n</div>\n")
+    ; __line = 70
+    ;  } 
     ; __append("\n<div class=\"dz-player-loading\"></div>")
-    ; __line = 67;
+    ; __line = 71;
   return __output;
 } catch (e) {
   rethrow(e, __lines, __filename, __line, escapeFn);
@@ -499,6 +511,10 @@ var ToolBar = /** @class */ (function () {
             });
         };
         this.createElement = function (key, toolBar) {
+            _this.mountTarget = _this.player.videoContainer.querySelector(".control-bar-right");
+            if (toolBar.position && toolBar.position == "left") {
+                _this.mountTarget = _this.player.videoContainer.querySelector(".control-bar-left");
+            }
             _this.iconElement = document.createElement('div');
             _this.iconElement.setAttribute("title", toolBar.title);
             _this.iconElement.className = "dz-player-custom-icon ".concat(key, " ").concat(toolBar.icon);
@@ -510,14 +526,18 @@ var ToolBar = /** @class */ (function () {
             }
             _this.mountTarget.appendChild(_this.iconElement);
             // 将newChild插入到parentElement的子节点列表的开头
-            _this.mountTarget.insertBefore(_this.iconElement, _this.mountTarget.firstChild);
+            if (toolBar.position && toolBar.position == "left") {
+                _this.mountTarget.appendChild(_this.iconElement);
+            }
+            else {
+                _this.mountTarget.insertBefore(_this.iconElement, _this.mountTarget.firstChild);
+            }
             _this.iconElement.addEventListener("click", function () {
                 toolBar.click && toolBar.click(_this.player);
             });
         };
         this.player = player;
         this.toolBarOptions = player.options.toolBars || {};
-        this.mountTarget = this.player.videoContainer.querySelector(".control-bar-right");
         this.initToolBar();
     }
     return ToolBar;
@@ -530,10 +550,11 @@ var Controller = /** @class */ (function () {
         this.playRaf = 0; // 播放 requestAnimationFrame Id
         // 初始化播放器控制条
         this.initControls = function () {
+            var _a;
             // 控制面板节点
             _this.controlElement = document.createElement('div');
             _this.controlElement.className = 'dz-player-control-panel';
-            _this.controlElement.innerHTML = anonymous(__assign(__assign({}, (_this.player.options.controlOptions || {})), { volume: _this.player.options.volume, srcType: _this.player.videoType, ratios: _this.player.options.speedList, showControl: _this.player.controls, videoList: isString(_this.player.options.url) ? null : _this.player.options.url }));
+            _this.controlElement.innerHTML = anonymous(__assign(__assign({}, (_this.player.options.controlOptions || {})), { volume: _this.player.options.volume, srcType: _this.player.videoType, ratios: ((_a = _this.player.options.speedList) === null || _a === void 0 ? void 0 : _a.length) ? _this.player.options.speedList : null, showControl: _this.player.controls, videoList: isString(_this.player.options.url) ? null : _this.player.options.url }));
             // 将控制面板添加到目标容器中
             !_this.controlOptions.manualMount && !_this.controlOptions.nativeControls && _this.mountTarget.appendChild(_this.controlElement);
             // loading 动画
@@ -618,15 +639,18 @@ var Controller = /** @class */ (function () {
         };
         // 初始化视频播放速率
         this.initPlaybackRate = function () {
-            var _a, _b, _c;
+            var _a, _b, _c, _d, _e;
             _this.player.video.playbackRate = _this.player.options.playbackRate || 1;
-            if (!_this.player.options.speedList) {
+            if (!((_a = _this.player.options.speedList) === null || _a === void 0 ? void 0 : _a.length)) {
                 return;
             }
             _this.playBackRatio = _this.controlElement.querySelector('.dz-player-playbackRatio');
-            var tmpPlayBackRatioBox = (_a = _this.playBackRatio) === null || _a === void 0 ? void 0 : _a.querySelector(".playbackRatio-box");
-            var tmpPlayBackRatioOver = (_b = _this.playBackRatio) === null || _b === void 0 ? void 0 : _b.querySelector(".dz-player-playbackRatio_over");
-            (_c = _this.playBackRatio) === null || _c === void 0 ? void 0 : _c.addEventListener("mouseenter", function () {
+            if (!_this.playBackRatio) {
+                return;
+            }
+            var tmpPlayBackRatioBox = (_b = _this.playBackRatio) === null || _b === void 0 ? void 0 : _b.querySelector(".playbackRatio-box");
+            var tmpPlayBackRatioOver = (_c = _this.playBackRatio) === null || _c === void 0 ? void 0 : _c.querySelector(".dz-player-playbackRatio_over");
+            (_d = _this.playBackRatio) === null || _d === void 0 ? void 0 : _d.addEventListener("mouseenter", function () {
                 tmpPlayBackRatioBox.style.display = 'block';
                 tmpPlayBackRatioOver.style.display = "block";
                 tmpPlayBackRatioBox.addEventListener("mouseleave", function () {
@@ -655,7 +679,7 @@ var Controller = /** @class */ (function () {
                     }
                 });
             };
-            for (var i = 0; i < _this.player.options.speedList.length; i++) {
+            for (var i = 0; i < ((_e = _this.player.options.speedList) === null || _e === void 0 ? void 0 : _e.length); i++) {
                 _loop_1(i);
             }
         };
@@ -666,6 +690,8 @@ var Controller = /** @class */ (function () {
                 return;
             }
             _this.playVideoList = _this.controlElement.querySelector('.dz-player-videoList');
+            if (!_this.playVideoList)
+                return;
             var playVideoListBox = (_a = _this.playVideoList) === null || _a === void 0 ? void 0 : _a.querySelector(".videoList-box");
             var playVideoListText = (_b = _this.playVideoList) === null || _b === void 0 ? void 0 : _b.querySelector(".dz-player-videoList-text");
             var playVideoListOver = (_c = _this.playVideoList) === null || _c === void 0 ? void 0 : _c.querySelector(".dz-player-videoList_over");
@@ -752,11 +778,13 @@ var Controller = /** @class */ (function () {
                         return;
                     var _a = entry.contentBoxSize[0], inlineSize = _a.inlineSize, blockSize = _a.blockSize;
                     // 播放按钮的显示隐藏
-                    if (blockSize < 40 || inlineSize < 40) {
-                        _this.playButton.style.display = 'none';
-                    }
-                    else {
-                        _this.playButton.style.display = 'grid';
+                    if (_this.playButton) {
+                        if (blockSize < 40 || inlineSize < 40) {
+                            _this.playButton.style.display = 'none';
+                        }
+                        else {
+                            _this.playButton.style.display = 'grid';
+                        }
                     }
                     // 控制栏的显示隐藏
                     if (blockSize < 75 || inlineSize < 60) {
@@ -766,11 +794,13 @@ var Controller = /** @class */ (function () {
                         _this.bottomControlBar.style.display = 'flex';
                     }
                     // 播放按钮的缩放
-                    if (blockSize < 100 || inlineSize < 100) {
-                        _this.playButton.style.scale = '0.5';
-                    }
-                    else {
-                        _this.playButton.style.scale = '1';
+                    if (_this.playButton) {
+                        if (blockSize < 100 || inlineSize < 100) {
+                            _this.playButton.style.scale = '0.5';
+                        }
+                        else {
+                            _this.playButton.style.scale = '1';
+                        }
                     }
                     // 控制全屏按钮的显示隐藏
                     if (_this.fullScreenButton && inlineSize < 200) {
@@ -995,11 +1025,11 @@ var Controller = /** @class */ (function () {
     Controller.prototype.toggleLoading = function (show) {
         if (show) {
             this.loading.style.opacity = '1';
-            this.playButton.style.opacity = '0';
+            this.playButton && (this.playButton.style.opacity = '0');
         }
         else {
             this.loading.style.opacity = '0';
-            this.playButton.style.opacity = '1';
+            this.playButton && (this.playButton.style.opacity = '1');
         }
     };
     return Controller;
@@ -1236,6 +1266,8 @@ var DzPlayer = /** @class */ (function () {
         this.onPause = function () {
             // 更新播放器状态
             _this.paused = true;
+            if (!_this.controller)
+                return;
             _this.controller.playButton && (_this.controller.playButton.innerHTML = Icons.play);
             _this.controller.controlPlayButton && (_this.controller.controlPlayButton.innerHTML = Icons.controlPlay);
             // 取消动画
@@ -1332,10 +1364,6 @@ var DzPlayer = /** @class */ (function () {
          */
         this.src = function (src) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                // this.options = Object.assign(
-                //     this.options,
-                //     options
-                // );
                 this.video.setAttribute("src", src);
                 this.video.load();
                 return [2 /*return*/];

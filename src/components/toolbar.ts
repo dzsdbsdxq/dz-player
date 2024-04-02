@@ -9,7 +9,6 @@ export default class ToolBar {
     constructor(player: DzPlayer) {
         this.player = player
         this.toolBarOptions = player.options.toolBars || {}
-        this.mountTarget = this.player.videoContainer.querySelector(".control-bar-right") as HTMLElement;
         this.initToolBar()
     }
     private initToolBar = () => {
@@ -18,6 +17,10 @@ export default class ToolBar {
         });
     }
     private createElement = (key:string,toolBar: ToolBarOptions) => {
+        this.mountTarget = this.player.videoContainer.querySelector(".control-bar-right") as HTMLElement;
+        if(toolBar.position && toolBar.position == "left"){
+            this.mountTarget = this.player.videoContainer.querySelector(".control-bar-left") as HTMLElement;
+        }
         this.iconElement = document.createElement('div')
         this.iconElement.setAttribute("title",toolBar.title);
         this.iconElement.className = `dz-player-custom-icon ${key} ${toolBar.icon}`
@@ -29,7 +32,11 @@ export default class ToolBar {
         }
         this.mountTarget.appendChild(this.iconElement);
         // 将newChild插入到parentElement的子节点列表的开头
-        this.mountTarget.insertBefore(this.iconElement, this.mountTarget.firstChild);
+        if(toolBar.position && toolBar.position == "left"){
+            this.mountTarget.appendChild(this.iconElement);
+        } else {
+            this.mountTarget.insertBefore(this.iconElement, this.mountTarget.firstChild); 
+        }
         this.iconElement.addEventListener("click",()=>{
             toolBar.click && toolBar.click(this.player)
         });

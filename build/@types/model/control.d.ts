@@ -3,6 +3,14 @@
  */
 export interface ControlOptions {
     /**
+     * @description 是否显示大播放暂停按钮
+     */
+    bigPlayControl?: boolean;
+    /**
+     * @description 是否显示刷新按钮
+     */
+    flushControl?: boolean;
+    /**
      * @description 是否显示进度条
      */
     seekBar?: boolean;

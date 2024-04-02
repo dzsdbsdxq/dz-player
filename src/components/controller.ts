@@ -56,7 +56,7 @@ export default class Controller {
          ...(this.player.options.controlOptions || {}), 
          volume: this.player.options.volume,
          srcType:this.player.videoType,
-         ratios:this.player.options.speedList,
+         ratios:this.player.options.speedList?.length ? this.player.options.speedList:null,
          showControl: this.player.controls,
          videoList:isString(this.player.options.url) ? null : this.player.options.url})
       // 将控制面板添加到目标容器中
@@ -147,10 +147,13 @@ export default class Controller {
     // 初始化视频播放速率
     private initPlaybackRate = () => {
       this.player.video.playbackRate = this.player.options.playbackRate || 1
-      if(!this.player.options.speedList){
+      if(!this.player.options.speedList?.length){
         return;
       }
       this.playBackRatio = this.controlElement.querySelector('.dz-player-playbackRatio') as HTMLElement
+      if(!this.playBackRatio){
+        return 
+      }
       const tmpPlayBackRatioBox = this.playBackRatio?.querySelector(".playbackRatio-box") as HTMLElement
       const tmpPlayBackRatioOver = this.playBackRatio?.querySelector(".dz-player-playbackRatio_over") as HTMLElement
       this.playBackRatio?.addEventListener("mouseenter",() => {
@@ -170,7 +173,7 @@ export default class Controller {
       if(!this.playBackRatioItem){
         return;
       }
-      for(let i = 0 ; i <this.player.options.speedList.length;i++ ){
+      for(let i = 0 ; i <this.player.options.speedList?.length;i++ ){
         (this.playBackRatioItem[i] as HTMLElement).addEventListener("click",() => {
           this.playBackRatio?.querySelector(".select")?.classList.remove("select");
           if(this.playBackRatioItem){
@@ -189,6 +192,7 @@ export default class Controller {
         return;
       }
       this.playVideoList = this.controlElement.querySelector('.dz-player-videoList') as HTMLElement
+      if(!this.playVideoList) return
       const playVideoListBox = this.playVideoList?.querySelector(".videoList-box") as HTMLElement
       const playVideoListText = this.playVideoList?.querySelector(".dz-player-videoList-text") as HTMLElement
 
@@ -276,10 +280,12 @@ export default class Controller {
   
             const { inlineSize, blockSize } = entry.contentBoxSize[0]
             // 播放按钮的显示隐藏
-            if (blockSize < 40 || inlineSize < 40) {
-              this.playButton.style.display = 'none'
-            } else {
-              this.playButton.style.display = 'grid'
+            if(this.playButton){
+              if (blockSize < 40 || inlineSize < 40) {
+                this.playButton.style.display = 'none'
+              } else {
+                this.playButton.style.display = 'grid'
+              }
             }
             // 控制栏的显示隐藏
             if (blockSize < 75 || inlineSize < 60) {
@@ -288,11 +294,14 @@ export default class Controller {
               this.bottomControlBar.style.display = 'flex'
             }
             // 播放按钮的缩放
-            if (blockSize < 100 || inlineSize < 100) {
-              this.playButton.style.scale = '0.5'
-            } else {
-              this.playButton.style.scale = '1'
+            if(this.playButton){
+              if (blockSize < 100 || inlineSize < 100) {
+                this.playButton.style.scale = '0.5'
+              } else {
+                this.playButton.style.scale = '1'
+              }
             }
+            
             // 控制全屏按钮的显示隐藏
             if (this.fullScreenButton && inlineSize < 200) {
               this.fullScreenButton.style.display = 'none'
@@ -502,10 +511,10 @@ export default class Controller {
     toggleLoading(show: boolean) {
       if (show) {
         this.loading!.style.opacity = '1'
-        this.playButton!.style.opacity = '0'
+        this.playButton && (this.playButton!.style.opacity = '0')
       } else {
         this.loading!.style.opacity = '0'
-        this.playButton!.style.opacity = '1'
+        this.playButton && (this.playButton!.style.opacity = '1')
       }
     }
   

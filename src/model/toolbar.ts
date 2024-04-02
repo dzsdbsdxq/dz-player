@@ -21,6 +21,10 @@ export interface ToolBarOptions {
      */
     style?: string
     /**
+     * 按钮挂载方向
+     */
+    position?: 'left'| 'right'
+    /**
      * 按钮点击事件
      * @returns 
      */

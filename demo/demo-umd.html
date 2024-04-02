@@ -35,28 +35,29 @@
             url:"http://10.86.8.10:8080/watermask_.png",
             style:"width:200px;height:100px;top:50px;right:50px;left:auto;"
         },
-        //url: "https://livepull-tcyzb.sztv.com.cn/live/xmt12.m3u8",
+        url: "https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4",
         poster:"https://www.haoba.cc/upload/2024/03/318541448-10318541448.jpg",
         controlOptions:{
-            showControl:true,
+            bigPlayControl:false,
             nativeControls:false,
             fullScreenControl:true,
             volumeControl:false,
             playTime:false,
-            //controlStyle:"background:rgba(0,0,0,0.6)"
+            flushControl:false,
+            //controlStyle:"background:red"
         },
-        url:[
-            {
-                label:'720p',
-                value:"https://ts7.sztv.com.cn/szmg/vod/2024/04/01/164bbb230eec499496d0f02487252942/h264_1200k_mp4.mp4",
-            },
-            {
-                label:'460p',
-                value:"https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4",
-                default:true
-            },
+        // url:[
+        //     {
+        //         label:'720p',
+        //         value:"https://ts7.sztv.com.cn/szmg/vod/2024/04/01/164bbb230eec499496d0f02487252942/h264_1200k_mp4.mp4",
+        //     },
+        //     {
+        //         label:'460p',
+        //         value:"https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4",
+        //         default:true
+        //     },
             
-        ],
+        // ],
         speedList:[
             {
                 label:'1倍数',
@@ -72,25 +73,49 @@
             },
         ],
         toolBars:{
-            // save:{
-            //     title:"hello",
-            //     icon:"fas fa-yin-yang",
-            //     text:``,
-            //     style:"font-size:16px;",
-            //     click:(player) => {
-            //         console.log(player);
-            //         player.play();
-            //     }
-            // },
-            // copy:{
-            //     title:"user",
-            //     icon:"fas fa-yin-yang",
-            //     style:"font-size:16px;",
-            //     click:(player) => {
-            //         console.log(player);
-            //         player.play();
-            //     }
-            // }
+            live:{
+                title:"hello",
+                icon:"fas fa-yin-yang",
+                text:`LIVE`,
+                position:'left',
+                style:"font-size:16px;",
+                click:(player) => {
+                    console.log(player);
+                    player.play();
+                }
+            },
+            live2:{
+                title:"hello",
+                icon:"fas fa-yin-yang",
+                text:``,
+                position:'left',
+                style:"font-size:16px;",
+                click:(player) => {
+                    console.log(player);
+                    player.play();
+                }
+            },
+            live3:{
+                title:"hello",
+                icon:"",
+                text:``,
+                position:'left',
+                style:"font-size:16px;",
+                click:(player) => {
+                    console.log(player);
+                    player.play();
+                }
+            },
+            copy:{
+                title:"user",
+                icon:"",
+                text:"LIVE",
+                style:"font-size:16px;",
+                click:(player) => {
+                    console.log(player);
+                    player.play();
+                }
+            }
         }
     });
     console.log(dzP);

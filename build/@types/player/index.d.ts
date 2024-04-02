@@ -29,8 +29,8 @@ export default class DzPlayer {
     once(name: EventsList, callback: (...arg: any) => void): void;
     emit(name: EventsList, data?: any): void;
     off(name: EventsList, callback: (...arg: any) => void): void;
-    initMSE(video: any, type: PlayerOptions['type']): void;
-    useHls: (video: any) => void;
+    initMSE(video: HTMLVideoElement, type: PlayerOptions['type']): void;
+    useHls: (video: HTMLVideoElement) => void;
     destroyHls: () => void;
     play: () => Promise<void>;
     pause: () => Promise<void>;

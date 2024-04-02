@@ -13,7 +13,7 @@ export default class DzPlayer {
     options: PlayerOptions // 播放器配置
     container: HTMLElement // 挂载目标元素
     videoContainer!: HTMLElement // 视频容器
-    controls:boolean;
+    controls:boolean; //是否显示控制栏
     video!: HTMLVideoElement // 播放器
     paused: boolean = true // 是否暂停
     videoType: PlayerOptions['type'] = 'auto' // 视频类型
@@ -130,6 +130,7 @@ export default class DzPlayer {
     private onPause = () => {
         // 更新播放器状态
         this.paused = true
+        if(!this.controller) return
         this.controller.playButton && (this.controller.playButton.innerHTML = Icons.play)
         this.controller.controlPlayButton && (this.controller.controlPlayButton.innerHTML = Icons.controlPlay)
         // 取消动画
@@ -157,7 +158,7 @@ export default class DzPlayer {
     }
 
     // MSE 支持
-    initMSE(video: any, type: PlayerOptions['type']) {
+    initMSE(video: HTMLVideoElement, type: PlayerOptions['type']) {
         this.videoType = type
         if (type === 'hls') {
             this.videoType = 'hls'
@@ -190,7 +191,7 @@ export default class DzPlayer {
     }
 
     // 使用 hls 播放视频
-    useHls = (video: any) => {
+    useHls = (video: HTMLVideoElement) => {
         try{
             this.hls = new Hls()
             this.hls.loadSource(video.src)
@@ -325,12 +326,7 @@ export default class DzPlayer {
      * @description 动态设置url地址
      */
     src = async (src: string) => {
-        // this.options = Object.assign(
-        //     this.options,
-        //     options
-        // );
         this.video.setAttribute("src",src);
-
         this.video.load();
     }
 

@@ -1,5 +1,7 @@
 <% if(locals.showControl){ %>
+<% if(locals.bigPlayControl){ %>
 <div class="dz-player-play-icon"></div>
+<% } %>
 <div 
   class="dz-player-control-bar" 
   data-type="<%= locals.srcType %>"
@@ -15,8 +17,10 @@
     <div class="control-bar-left">
       <div class="control-play"></div>
       <% if(locals.srcType == "hls"){ %>
-        <div alt="刷新" style="display: none;" class="control-flush"></div>
-        <div class="live-text">LIVE</div>
+        <% if(locals.flushControl){ %>
+        <div alt="刷新" class="control-flush"></div>
+        <% } %>
+        <div class="live-text" style="display: none;">LIVE</div>
       <% } else { %>
         <% if(locals.playTime){ %>
           <span class="dz-player-play-time">00:00 / 00:00</span>
@@ -24,7 +28,6 @@
       <% } %>
     </div>
     <div class="control-bar-right">
-
       <% if(locals.videoList){ %>
         <div class="dz-player-videoList">
           <div class="dz-player-videoList_over"></div>
@@ -63,7 +66,6 @@
         <i class="dz-player-fullscreen"></i>
       <% } %>
     </div>
-
   </div>
 </div>
 <% } %>
