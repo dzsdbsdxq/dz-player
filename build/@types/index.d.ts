@@ -1,1 +1,1 @@
-export { default } from './player/PlayerUtil';
+export { default } from './player';

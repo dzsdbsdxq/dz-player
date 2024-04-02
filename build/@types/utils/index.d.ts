@@ -21,6 +21,14 @@ export declare const color2Number: (color: string) => number;
 export declare const number2Color: (number: number) => string;
 export declare const getTransform: (str: string) => any;
 export declare const setTransform: (obj: Record<string, any>) => string;
+export declare const getVideoInfo: (videoElem: HTMLVideoElement) => {
+    width: number;
+    height: number;
+};
+export declare const downloadBase64: (fileName: string, content: string) => void;
+export declare const base64ToBlob: (code: string) => Blob;
+export declare const isString: (o: any) => boolean;
+export declare const isArray: (o: any) => boolean;
 declare const _default: {
     isMobile: boolean;
     isFirefox: boolean;
@@ -39,5 +47,12 @@ declare const _default: {
     number2Color: (number: number) => string;
     getTransform: (str: string) => any;
     setTransform: (obj: Record<string, any>) => string;
+    getVideoInfo: (videoElem: HTMLVideoElement) => {
+        width: number;
+        height: number;
+    };
+    downloadBase64: (fileName: string, content: string) => void;
+    isString: (o: any) => boolean;
+    isArray: (o: any) => boolean;
 };
 export default _default;

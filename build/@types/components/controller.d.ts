@@ -1,12 +1,18 @@
 import { ControlOptions } from "../model/control";
-import DzPlayer from "../player/PlayerUtil";
+import DzPlayer from "../player";
+import ToolBar from './toolbar';
 export default class Controller {
     player: DzPlayer;
     autoHideTimer?: number;
     disableAutoHide: boolean;
+    toolBar?: ToolBar;
     playButton: HTMLElement;
     seekBar: HTMLInputElement;
     bottomControlBar: HTMLElement;
+    playBackRatio?: HTMLElement;
+    playBackRatioItem?: HTMLElement[];
+    playVideoList?: HTMLElement;
+    playVideoListItem?: HTMLElement[];
     playTime?: HTMLElement;
     volumeSlider?: HTMLInputElement;
     volumeControlBar?: HTMLInputElement;
@@ -26,6 +32,7 @@ export default class Controller {
     private initControlFlushButton;
     private initSeekBar;
     private initPlaybackRate;
+    private initPlayVideoList;
     private initVolumeButton;
     private initFullScreenButton;
     private watchControlResize;

@@ -40,11 +40,6 @@ export default {
     output:[ 
         {
             file: `${outDir}/index.js`,
-            format: 'cjs',
-            banner: banner,
-        },
-        {
-            file: `${outDir}/index.esm.js`,
             format: 'es',
             banner: banner,
         },

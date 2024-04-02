@@ -1,18 +1,25 @@
 import controlTemplate from '../template/control.ejs'
 import { ControlOptions } from "../model/control"
 import Icons from '../model/icons'
-import DzPlayer from "../player/PlayerUtil"
-import { formatTime, isMobile, secondToTime, throttle } from '../utils'
+import DzPlayer from "../player"
+import { formatTime, isMobile, secondToTime, throttle,isString, isArray } from '../utils'
+import ToolBar from './toolbar'
+import { OptionVal } from '@/model/common'
 
 export default class Controller {
     player: DzPlayer // 播放器实例
-
     autoHideTimer?: number // 自动隐藏计时器
     disableAutoHide: boolean = false // 禁用自动隐藏
-  
+    toolBar?: ToolBar
     playButton!: HTMLElement // 播放按钮
     seekBar!: HTMLInputElement // 进度条
     bottomControlBar!: HTMLElement // 底部控制栏
+
+    playBackRatio?: HTMLElement //播放速率
+    playBackRatioItem?: HTMLElement[] //播放速率列表
+
+    playVideoList?: HTMLElement //播放列表容器
+    playVideoListItem?: HTMLElement[] //播放列表条目
   
     playTime?: HTMLElement // 播放时间
     volumeSlider?: HTMLInputElement // 是否显示音量控制栏
@@ -32,8 +39,11 @@ export default class Controller {
       this.player = player
       this.controlOptions = player.options.controlOptions || {}
       this.mountTarget = this.controlOptions.mountTarget || this.player.videoContainer
-  
       this.initControls()
+      /**
+       * 必须在initControls之后，挂在自定义按钮必须先初始化init
+       */
+      this.toolBar = new ToolBar(player)
       this.initControlsEvent()
     }
   
@@ -42,7 +52,13 @@ export default class Controller {
       // 控制面板节点
       this.controlElement = document.createElement('div')
       this.controlElement.className = 'dz-player-control-panel'
-      this.controlElement.innerHTML = controlTemplate({ ...(this.player.options.controlOptions || {}), volume: this.player.options.volume,srcType:this.player.videoType })
+      this.controlElement.innerHTML = controlTemplate({
+         ...(this.player.options.controlOptions || {}), 
+         volume: this.player.options.volume,
+         srcType:this.player.videoType,
+         ratios:this.player.options.speedList,
+         showControl: this.player.controls,
+         videoList:isString(this.player.options.url) ? null : this.player.options.url})
       // 将控制面板添加到目标容器中
       !this.controlOptions.manualMount && !this.controlOptions.nativeControls && this.mountTarget.appendChild(this.controlElement)
       // loading 动画
@@ -64,6 +80,8 @@ export default class Controller {
       this.initVolumeButton()
       this.initFullScreenButton()
       this.initPlaybackRate()
+      this.initPlayVideoList()
+
   
       // 其他
       // if (!this.player.options.controlOptions) {}
@@ -73,6 +91,7 @@ export default class Controller {
     private initPlayButton = () => {
       // 设置控制条按钮的事件处理函数
       this.playButton = this.controlElement.querySelector('.dz-player-play-icon') as HTMLElement
+      if (!this.playButton) return
       this.playButton.innerHTML = Icons.play
       this.playButton.addEventListener('click', this.player.togglePlay)
     }
@@ -100,6 +119,7 @@ export default class Controller {
     private initSeekBar = () => {
       // 设置控制条滑块的事件处理函数
       this.seekBar = this.controlElement.querySelector('.dz-player-seek-slider') as HTMLInputElement
+      if (!this.seekBar) return
       let playStatus = false
       // 记录当前播放状态，并暂停播放
       const pausePlay = (event: Event) => {
@@ -122,12 +142,95 @@ export default class Controller {
       this.seekBar && this.seekBar.addEventListener('touchend', resumePlay)
       this.seekBar && this.seekBar.addEventListener('touchmove', (event) => event.stopPropagation())
       this.seekBar && this.seekBar.addEventListener('input', this.onSeeking)
-  
     }
   
     // 初始化视频播放速率
     private initPlaybackRate = () => {
       this.player.video.playbackRate = this.player.options.playbackRate || 1
+      if(!this.player.options.speedList){
+        return;
+      }
+      this.playBackRatio = this.controlElement.querySelector('.dz-player-playbackRatio') as HTMLElement
+      const tmpPlayBackRatioBox = this.playBackRatio?.querySelector(".playbackRatio-box") as HTMLElement
+      const tmpPlayBackRatioOver = this.playBackRatio?.querySelector(".dz-player-playbackRatio_over") as HTMLElement
+      this.playBackRatio?.addEventListener("mouseenter",() => {
+        tmpPlayBackRatioBox.style.display = 'block';
+        tmpPlayBackRatioOver.style.display = "block";
+        tmpPlayBackRatioBox.addEventListener("mouseleave",() => {
+          tmpPlayBackRatioBox.style.display = "none";
+          tmpPlayBackRatioOver.style.display = "none";
+        });
+      });
+      this.playBackRatio.addEventListener("mouseleave",() => {
+        tmpPlayBackRatioBox.style.display = "none";
+        tmpPlayBackRatioOver.style.display = "none";
+      });
+      
+      this.playBackRatioItem = this.controlElement.querySelectorAll(".playbackRatio-box__wrap-item") as unknown as HTMLElement[]
+      if(!this.playBackRatioItem){
+        return;
+      }
+      for(let i = 0 ; i <this.player.options.speedList.length;i++ ){
+        (this.playBackRatioItem[i] as HTMLElement).addEventListener("click",() => {
+          this.playBackRatio?.querySelector(".select")?.classList.remove("select");
+          if(this.playBackRatioItem){
+            (this.playBackRatioItem[i] as HTMLElement).classList.add("select");
+            if(this.player.options.speedList && this.player.options.speedList[i]){
+              this.player.video.playbackRate = (this.player.options.speedList[i] as OptionVal).value as number;
+            }
+            (this.playBackRatio?.querySelector(".dz-player-playbackRatio-text") as HTMLElement).textContent = (this.playBackRatioItem[i] as HTMLElement).innerText;
+          }
+        });
+      }
+    }
+    //初始化视频清晰度列表
+    private initPlayVideoList = () => {
+      if(!isArray(this.player.options.url)){
+        return;
+      }
+      this.playVideoList = this.controlElement.querySelector('.dz-player-videoList') as HTMLElement
+      const playVideoListBox = this.playVideoList?.querySelector(".videoList-box") as HTMLElement
+      const playVideoListText = this.playVideoList?.querySelector(".dz-player-videoList-text") as HTMLElement
+
+      const playVideoListOver = this.playVideoList?.querySelector(".dz-player-videoList_over") as HTMLElement
+      
+      this.playVideoList?.addEventListener("mouseenter",() => {
+        playVideoListBox.style.display = 'block';
+        playVideoListOver.style.display = "block";
+        playVideoListBox.addEventListener("mouseleave",() => {
+          playVideoListBox.style.display = "none";
+          playVideoListOver.style.display = "none";
+        });
+      });
+      this.playVideoList.addEventListener("mouseleave",() => {
+        playVideoListBox.style.display = "none";
+        playVideoListOver.style.display = "none";
+      });
+
+      this.playVideoListItem = this.controlElement.querySelectorAll(".videoList-box__wrap-item") as unknown as HTMLElement[]
+      if(!this.playVideoListItem){
+        return;
+      }
+
+      for(let i = 0 ; i <this.player.options.url.length;i++ ){
+        if((this.player.options.url[i] as OptionVal)?.default){
+          playVideoListText.textContent = (this.player.options.url[i] as OptionVal).label;
+        }
+        (this.playVideoListItem[i] as HTMLElement).addEventListener("click",() => {
+          playVideoListBox?.querySelector(".select")?.classList.remove("select");
+          if(this.playVideoListItem){
+            (this.playVideoListItem[i] as HTMLElement).classList.add("select");
+            if(this.player.options.url && this.player.options.url[i]){
+              const currentTime = this.player.video.currentTime;
+              //设置video播放url
+              this.player.src((this.player.options.url[i] as OptionVal).value as string);
+              this.player.video.currentTime = currentTime;
+              this.player.play();
+            }
+            playVideoListText.textContent = (this.playVideoListItem[i] as HTMLElement).innerText;
+          }
+        });
+      }
     }
   
     // 初始化音量控制栏
@@ -138,10 +241,18 @@ export default class Controller {
       // 设置控制条声音控制栏的事件处理函数
       this.muteButton = this.controlElement.querySelector('.dz-player-volume-icon') as HTMLButtonElement
       this.muteButton.addEventListener('click', this.player.mute)
+
       this.switchVolumeIcon()
       this.volumeSlider = this.controlElement.querySelector('.dz-player-volume-slider') as HTMLInputElement
       this.volumeSlider.addEventListener('input', throttle(this.onVolumeChange, 100))
       this.volumeControlBar = this.controlElement.querySelector('.dz-player-volume-bar') as HTMLInputElement
+
+      this.volumeControlBar.addEventListener('mouseenter',()=>{
+        this.volumeSlider?.setAttribute("style","width:60px;");
+      })
+      this.volumeControlBar.addEventListener('mouseleave',()=>{
+        this.volumeSlider?.setAttribute("style","width:0px;");
+      })
     }
   
     // 初始化全屏按钮
@@ -155,6 +266,9 @@ export default class Controller {
   
     // 监听控制栏的尺寸变化, 控制显示隐藏 播放按钮，视频时间和音量控制栏
     private watchControlResize = () => {
+      if(!this.player.controls){
+        return;
+      }
       const resizeObserver = new ResizeObserver(
         throttle((entries: ResizeObserverEntry[]) => {
           for (const entry of entries) {
@@ -261,7 +375,7 @@ export default class Controller {
           outOfBounds = true
         }
         outOfBounds = false
-        tooltip.style.left = positionX - tooltip.clientWidth / 2 + 40 + 'px'
+        tooltip.style.left = positionX - tooltip.clientWidth / 2 + 'px'
       }
   
       this.seekBar && this.seekBar.addEventListener('touchmove', showTip)

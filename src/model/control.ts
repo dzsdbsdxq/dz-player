@@ -1,7 +1,12 @@
+
 /**
  * @description 控制器配置
  */
 export interface ControlOptions {
+    /**
+     * @description 是否显示进度条
+     */
+    seekBar?: boolean
     /**
      * @description 是否显示播放时间
      */
@@ -27,4 +32,8 @@ export interface ControlOptions {
      * @description 是否使用原生控制条
      */
     nativeControls?: boolean
+    /**
+     * @description 自定义控制条样式
+     */
+    controlStyle?: string
   }

@@ -1,3 +1,33 @@
+@mixin playback{
+  position: relative;
+  display: inline-block;
+  font-size: 12px;
+  height: 20px;
+  margin-right: 15px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+@mixin playbackBox {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+  width: 60px;
+  max-width: 60px;
+  background: #33343f;
+  padding: 20px 0;
+  right: 50%;
+  transform: translate(50%);
+  height: auto;
+  color: #fff;
+  border-radius: 12px !important;
+}
 // 控制面板
 .dz-player-hide-controller {
     .dz-player-control-panel {
@@ -21,9 +51,13 @@
       right: 0;
       top: 0;
       bottom: 0;
+      width: 50px;
+      height: 50px;
+      margin: auto;
       box-sizing: border-box;
       display: grid;
       place-content: center;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       svg {
         width: 50px;
         height: 50px;
@@ -56,22 +90,24 @@
       bottom: 0px;
       left: 0;
       width: 100%;
-      height: 35px;
+      height: 50px;
       user-select: none;
-      transition: all 0.3s ease;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4));
+      transition: all 0.5s ease;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5));
       color: white;
-      padding: 0 10px;
+      padding: 0;
       box-sizing: border-box;
       display: flex;
-      gap: 8px;
-      justify-content: space-between;
+      gap: 0px 8px;
+      justify-content: center;
       align-items: center;
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: wrap;
       align-content: center;
-      .control-bar-left{
-        flex: 1;
+
+      .control-bar-progress{
+        position: relative;
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -82,66 +118,12 @@
           width: 100%;
           flex: 1;
         }
-        .control-play{
-          width: 20px;
-          height: 20px;
-          margin-right: 10px;
-          cursor: pointer;
-          svg{
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .control-flush{
-          width: 20px;
-          height: 20px;
-          margin-right: 10px;
-          transition: all .3s;
-          -webkit-transition:all .3s;
-          cursor: pointer;
-          svg{
-            width: 100%;
-            height: 100%;
-          }
-          &:hover{
-            transform:rotate(180deg);
-            -webkit-transform:rotate(180deg);
-          }
-        }
-        .live-text{
-          white-space: nowrap;
-          -webkit-box-align: center;
-          -webkit-align-items: center;
-          -ms-flex-align: center;
-          align-items: center;
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
-          margin: 0;
-          padding: 0px;
-          scale: .8;
-          color:#fff;
-          font-size: 16px;
-          img{
-            width: 14px;
-            height: 14px;
-          }
-        }
-        .dz-player-play-time {
-          font-family: Menlo, Courier New, Consolas, Lucida Console, Courier, monospace;
-          font-size: 14px;
-          text-align: center;
-          user-select: none;
-          min-width: 120px;
-          margin-left: 8px;
-        }
         .dz-player-play-time-tip {
           display: none;
           width: 50px;
           text-align: center;
           position: absolute;
-          top: -30px;
+          top: -38px;
           left: -10px;
           pointer-events: none;
           background-color: #000;
@@ -162,35 +144,242 @@
           }
         }
       }
-      .control-bar-right{
+      .control-bar-options {
+        width: 100%;
+        position: relative;
         display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-end;
-        align-items: center;
         align-content: center;
-        .dz-player-volume-slider {
-          width: 60px;
-        }
-        .dz-player-volume-bar {
-          margin-right: 15px;
-          max-width: 80px;
-          width: 80px;
+        padding: 6px 10px 0px 10px;
+        .control-bar-left{
+          flex: 1;
           display: flex;
-          justify-content: space-between;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
           align-items: center;
+          align-content: center;
+          .control-play{
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            svg{
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .control-flush{
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            transition: all .3s;
+            -webkit-transition:all .3s;
+            cursor: pointer;
+            svg{
+              width: 100%;
+              height: 100%;
+            }
+            &:hover{
+              transform:rotate(180deg);
+              -webkit-transform:rotate(180deg);
+            }
+          }
+          .live-text{
+            white-space: nowrap;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 0;
+            padding: 0px;
+            scale: .8;
+            color:#fff;
+            font-size: 16px;
+            img{
+              width: 14px;
+              height: 14px;
+            }
+          }
+          .dz-player-play-time {
+            font-family: Menlo, Courier New, Consolas, Lucida Console, Courier, monospace;
+            font-size: 14px;
+            text-align: center;
+            user-select: none;
+            min-width: 120px;
+          }
+          
         }
-  
-        .dz-player-volume-icon,
-        .dz-player-fullscreen {
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          text-align: center;
-          color: white;
-          cursor: pointer;
+        .control-bar-right{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          align-items: center;
+          align-content: center;
+          .dz-player-custom-icon{
+            position: relative;
+            display: inline-block;
+            font-size: 12px;
+            height: 20px;
+            margin-right: 15px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            span {
+              font-size: 12px;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+            }
+          }
+          .dz-player-playbackRatio {
+            @include playback;
+            &_over{
+              display: none;
+              width: 100%;
+              position: absolute;
+              height: 50px;
+              background: transparent;
+              bottom: 0;
+              left: 0;
+            }
+            &-text {
+              font-size: 12px;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+            }
+            .playbackRatio-box {
+              @include playbackBox;
+              &__wrap {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 14px;
+                &-item {
+                  width: 100%;
+                  text-align: center;
+                  opacity: 0.7;
+                  cursor: pointer;
+                  margin-bottom: 16px;
+                  line-height: 18px;
+                  &:last-child{
+                    margin-bottom: 0;
+                  }
+                  &:hover {
+                    opacity: 1;
+                    color: #fe2c55;
+                    font-weight: 500;
+                  }
+                  &.select {
+                    opacity: 1;
+                    color: #fe2c55;
+                    font-weight: 500;
+                  }
+
+                }
+              }
+            }
+          }
+          .dz-player-videoList {
+            @include playback;
+            &_over{
+              width: 100%;
+              display: none;
+              position: absolute;
+              height: 50px;
+              background: transparent;
+              bottom: 0;
+              left: 0;
+            }
+            &-text {
+              font-size: 12px;
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              justify-content: center;
+              align-items: center;
+              align-content: center;
+            }
+            .videoList-box {
+              @include playbackBox;
+              &__wrap {
+                color: #fff;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 14px;
+                &-item {
+                  width: 100%;
+                  text-align: center;
+                  opacity: 0.7;
+                  cursor: pointer;
+                  margin-bottom: 16px;
+                  line-height: 18px;
+                  &:last-child{
+                    margin-bottom: 0;
+                  }
+                  &:hover {
+                    opacity: 1;
+                    color: #fe2c55;
+                    font-weight: 500;
+                  }
+                  &.select {
+                    opacity: 1;
+                    color: #fe2c55;
+                    font-weight: 500;
+                  }
+
+                }
+              }
+            }
+          }
+          input.dz-player-volume-slider {
+            width: 0px;
+            transition: all 0.5s ease;
+          }
+          .dz-player-volume-bar {
+            margin-right: 15px;
+            max-width: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+    
+          .dz-player-volume-icon,
+          .dz-player-fullscreen {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+          }
         }
+
       }
+
+
     }
   }
   

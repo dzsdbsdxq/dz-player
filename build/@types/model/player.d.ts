@@ -1,4 +1,6 @@
+import { OptionVal, WaterMaskOption } from "./common";
 import { ControlOptions } from "./control";
+import { ToolBarOptions } from "./toolbar";
 /**
  * @description 播放器入参配置
  */
@@ -8,9 +10,9 @@ export interface PlayerOptions {
      */
     container: HTMLElement;
     /**
-     * @description 视频地址
+     * @description 视频地址 String|Object[],URL为数组形式时，会使用显示清晰度
      */
-    src: string;
+    url: string | OptionVal[];
     /**
      * @description 视频类型
      */
@@ -22,7 +24,11 @@ export interface PlayerOptions {
     /**
      * @description 是否显示控制条
      */
-    controlOptions: ControlOptions;
+    controls?: boolean;
+    /**
+     * @description 控制条配置
+     */
+    controlOptions?: ControlOptions;
     /**
      * @description 是否自动播放
      */
@@ -60,17 +66,17 @@ export interface PlayerOptions {
      */
     playbackRate?: number;
     /**
+     * @description 倍速列表
+     */
+    speedList?: OptionVal[];
+    /**
      * @description 是否使用 CORS（跨域资源共享）来获取相关视频
      */
     crossOrigin?: 'anonymous' | 'use-credentials';
     /**
      * @description 是否显示水印
      */
-    waterMarkShow?: boolean;
-    /**
-     * @description 自定义水印地址
-     */
-    waterMarkUrl?: string;
+    waterMark?: WaterMaskOption;
     /**
      * @description 视频片段的开始时间
      */
@@ -88,4 +94,13 @@ export interface PlayerOptions {
      * @description 播放器自定义样式
      */
     customStyle?: string;
+    /**
+     * @description Video自定义样式
+     */
+    videoStyle?: string;
+    toolBars?: Record<string, ToolBarOptions>;
+    /**
+     * @description 播放清晰度
+     */
+    playClarity?: OptionVal[];
 }

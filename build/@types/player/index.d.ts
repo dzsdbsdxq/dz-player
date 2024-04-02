@@ -7,6 +7,7 @@ export default class DzPlayer {
     options: PlayerOptions;
     container: HTMLElement;
     videoContainer: HTMLElement;
+    controls: boolean;
     video: HTMLVideoElement;
     paused: boolean;
     videoType: PlayerOptions['type'];
@@ -38,7 +39,18 @@ export default class DzPlayer {
     volume(val: number | string): number;
     mute: () => void;
     toggleFullScreen: () => void;
-    handleWaterMarkShow: (show: boolean | undefined) => void;
+    /**
+     * @description 视频截图
+     * @param download
+     * @param name
+     * @returns
+     */
+    screenshot(download?: boolean, name?: string): string | null;
+    /**
+     * @description 动态设置url地址
+     */
+    src: (src: string) => Promise<void>;
+    handleWaterMarkShow: () => void;
     mountController: (mountTarget: HTMLElement) => void;
     cutVideo: (start: number, end: number) => void;
     destroy: () => Promise<void>;

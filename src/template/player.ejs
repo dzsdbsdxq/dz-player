@@ -3,15 +3,15 @@
     webkit-playsinline
     playsinline
     src="<%= locals.src %>"
-    <% if(locals.controlOptions.nativeControls){ %> controls <% } %>
+    <% if(locals.controlOptions && locals.controlOptions.nativeControls){ %> controls <% } %>
     <% if(locals.autoplay){ %> autoplay <% } %>
     <% if(locals.muted){ %> muted <% } %>
     <% if(locals.airplay){ %> airplay <% } %>
     <% if(locals.airplay){ %> x-webkit-airplay="allow" <% } %>
-    <% if(locals.preload){ %> src="<%= locals.preload %>" <% } %>
+    <% if(locals.preload){ %> preload="<%= locals.preload %>" <% } %>
     <% if(locals.poster){ %> poster="<%= locals.poster %>" <% } %>
-    <% if(locals.crossOrigin){ %> src="<%= locals.crossOrigin %>" <% } %>
-    <% if(locals.customStyle){ %> style="<%= locals.customStyle %>" <% } %>
+    <% if(locals.crossOrigin){ %> crossorigin="<%= locals.crossOrigin %>" <% } %>
+    <% if(locals.videoStyle){ %> style="<%= locals.videoStyle %>" <% } %>
 >
 您的浏览器不支持video标签
 </video>

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
     <title>demo-umd</title>
-    <div id="mountTarget"></div>
     <script src="https://hlsjs.video-dev.org/dist/hls.js"></script>
     <script src="../build/index.umd.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <style>
-        *{
+        *{ 
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -16,23 +16,103 @@
     </style>
 </head>
 <body>
-    <div class="playArea" style="width: 100vw;height: 250px;" id="playArea"></div>
+    <div class="playArea" style="margin:50px;width: 850px;height: 500px;border-radius: 20px !important;" id="playArea"></div>
+    <button onclick="bofang()">播放</button>
+    <button onclick="jietu()">截图</button>
     <script>
+        //直播：https://livepull-tcyzb.sztv.com.cn/live/xmt12.m3u8
         //https://shoujieli:exUnvQWC5FQUJwBpkfgX@git.sztv.com.cn/1sz/ysz-vue-template.git
-    //https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4
+    //横屏：https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4
+    // 竖屏：https://ts7.sztv.com.cn/szmg/vod/2024/04/01/164bbb230eec499496d0f02487252942/h264_1200k_mp4.mp4
     const dzP = new DzPlayer({
         container: document.getElementById('playArea'),
         type:'auto',
-        src: 'https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4',
+        loop:true,
+        crossOrigin:"anonymous",
+        controls:true,
+        waterMark:{
+            show:false,
+            url:"http://10.86.8.10:8080/watermask_.png",
+            style:"width:200px;height:100px;top:50px;right:50px;left:auto;"
+        },
+        //url: "https://livepull-tcyzb.sztv.com.cn/live/xmt12.m3u8",
+        poster:"https://www.haoba.cc/upload/2024/03/318541448-10318541448.jpg",
         controlOptions:{
+            showControl:true,
             nativeControls:false,
             fullScreenControl:true,
+            volumeControl:false,
+            playTime:false,
+            //controlStyle:"background:rgba(0,0,0,0.6)"
         },
-        customStyle:"border-radius: 10px;"
+        url:[
+            {
+                label:'720p',
+                value:"https://ts7.sztv.com.cn/szmg/vod/2024/04/01/164bbb230eec499496d0f02487252942/h264_1200k_mp4.mp4",
+            },
+            {
+                label:'460p',
+                value:"https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4",
+                default:true
+            },
+            
+        ],
+        speedList:[
+            {
+                label:'1倍数',
+                value:1.0
+            },
+            {
+                label:'2.0X',
+                value:1.5
+            },
+            {
+                label:'3.0X',
+                value:3.0
+            },
+        ],
+        toolBars:{
+            // save:{
+            //     title:"hello",
+            //     icon:"fas fa-yin-yang",
+            //     text:``,
+            //     style:"font-size:16px;",
+            //     click:(player) => {
+            //         console.log(player);
+            //         player.play();
+            //     }
+            // },
+            // copy:{
+            //     title:"user",
+            //     icon:"fas fa-yin-yang",
+            //     style:"font-size:16px;",
+            //     click:(player) => {
+            //         console.log(player);
+            //         player.play();
+            //     }
+            // }
+        }
     });
+    console.log(dzP);
     dzP.on('ended', function () {
         console.log('player ended')
     });
+    function bofang(){
+        let url = "https://ts7.sztv.com.cn/szmg/vod/2024/03/25/d2206a716a004e87b215048c4d5eaacd/_h264_1200k_mp4.mp4";
+        // dzP.setVideoOptions({
+        //     type:'auto',
+        //     src: url,
+        // });
+        dzP.src(url);
+        dzP.play();
+    }
+    function jietu(){
+       const d= dzP.screenshot(true,"1.png");
+       console.log(d);
+    }
+    function zanting(){
+        dzP.pause();
+    }
     function endFunc(){
         dzP.emit('ended');
     }

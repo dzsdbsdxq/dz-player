@@ -21,10 +21,12 @@
     border: 1px solid transparent;
     border-image: linear-gradient(#fff, #fff) 0 fill / 4 12 4 0 / 0px 0px 0 3000px;
   }
+
+
   
   // 控制栏中的 range bar 样式
   .dz-player-control-bar input[type='range'] {
-    height: 20px;
+    height: 10px;
     // 控制 UI 控件的基于操作系统主题的原生外观
     -webkit-appearance: none;
     appearance: none;

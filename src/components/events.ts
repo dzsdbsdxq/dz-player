@@ -1,5 +1,5 @@
 import { PlayerEventsEnum, VideoEventsEnum } from "../model/event"
-import DzPlayer from "../player/PlayerUtil"
+import DzPlayer from "../player"
 
 export type EventsList = keyof typeof VideoEventsEnum | keyof typeof PlayerEventsEnum
 
