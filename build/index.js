@@ -1,5 +1,5 @@
 /*!
- * dzPlayer 0.0.48
+ * dzPlayer 0.0.49
  * Author: ShoujieLi
  * Description: A Tiny Video Player for html5.
  * E-Mail: lishoujie08@gmail.com
@@ -585,14 +585,14 @@ var Controller = /** @class */ (function () {
             if (!_this.playButton)
                 return;
             _this.playButton.innerHTML = Icons.play;
-            _this.playButton.addEventListener('click', _this.player.togglePlay);
+            _this.playButton.addEventListener('click', _this.player.toggle);
         };
         this.initControlPlayOrPauseButton = function () {
             // 设置控制条全屏按钮的事件处理函数
             _this.controlPlayButton = _this.controlElement.querySelector('.control-play');
             if (!_this.controlPlayButton)
                 return;
-            _this.controlPlayButton.addEventListener('click', _this.player.togglePlay);
+            _this.controlPlayButton.addEventListener('click', _this.player.toggle);
             _this.controlPlayButton.innerHTML = Icons.controlPlay;
         };
         this.initControlFlushButton = function () {
@@ -1159,7 +1159,10 @@ var PlayerEventsEnum;
      * @description 播放器截屏时。
      */
     PlayerEventsEnum["screenshot"] = "screenshot";
-    // fullscreen = 'fullscreen',
+    /**
+       * @description 播放器全屏时。
+       */
+    PlayerEventsEnum["fullscreen"] = "fullscreen";
     // fullscreen_cancel = 'fullscreen_cancel',
     // webfullscreen = 'webfullscreen',
     // webfullscreen_cancel = 'webfullscreen_cancel',
@@ -1311,7 +1314,7 @@ var DzPlayer = /** @class */ (function () {
             });
         }); };
         // 切换播放状态
-        this.togglePlay = function (event) { return __awaiter(_this, void 0, void 0, function () {
+        this.toggle = function (event) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:

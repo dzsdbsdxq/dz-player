@@ -217,7 +217,7 @@ export default class DzPlayer {
     }
 
     // 切换播放状态
-    togglePlay = async (event?: Event) => {
+    toggle = async (event?: Event) => {
         if (this.video!.paused) {
             await this.play()
         } else {

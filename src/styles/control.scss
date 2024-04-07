@@ -258,6 +258,7 @@
           justify-content: flex-end;
           align-items: center;
           align-content: center;
+          
           .dz-player-custom-icon{
             @include playerCustom;
             span {
@@ -388,6 +389,9 @@
             text-align: center;
             color: white;
             cursor: pointer;
+          }
+          &:last-child{
+            margin-right: 0px;
           }
         }
 

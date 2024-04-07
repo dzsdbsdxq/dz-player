@@ -1,0 +1,23 @@
+
+{
+    "name": "dz-player",
+    "version": "0.0.49",
+    "description": "A Tiny Video Player for html5.",
+    "type": "module",
+    "types": "./@types/index.d.ts",
+    "main": "index.js",
+    "module": "index.js",
+    "sideEffects": false,
+    "keywords": [
+      "video player"
+    ],
+    "author": "jackieLee",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://www.haoba.cc"
+    },
+    "bugs": {
+      "url": "https://www.haoba.cc/issues"
+    }
+  }

@@ -122,8 +122,10 @@ export enum VideoEventsEnum {
      * @description 播放器截屏时。
      */
     screenshot = 'screenshot',
-  
-    // fullscreen = 'fullscreen',
+  /**
+     * @description 播放器全屏时。
+     */
+    fullscreen = 'fullscreen',
     // fullscreen_cancel = 'fullscreen_cancel',
     // webfullscreen = 'webfullscreen',
     // webfullscreen_cancel = 'webfullscreen_cancel',

@@ -119,5 +119,9 @@ export declare enum PlayerEventsEnum {
     /**
      * @description 播放器截屏时。
      */
-    screenshot = "screenshot"
+    screenshot = "screenshot",
+    /**
+       * @description 播放器全屏时。
+       */
+    fullscreen = "fullscreen"
 }

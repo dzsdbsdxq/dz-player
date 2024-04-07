@@ -98,9 +98,9 @@ export interface PlayerOptions {
      * @description Video自定义样式
      */
     videoStyle?: string;
-    toolBars?: Record<string, ToolBarOptions>;
     /**
-     * @description 播放清晰度
+     * @description 是否开启airplay
      */
-    playClarity?: OptionVal[];
+    airplay?: boolean;
+    toolBars?: Record<string, ToolBarOptions>;
 }

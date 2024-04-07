@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,V as l}from"./chunks/framework.e20c294a.js";const A=JSON.parse('{"title":"MSE 支持","description":"","frontmatter":{},"headers":[],"relativePath":"page/mse.md","filePath":"page/mse.md"}'),p={name:"page/mse.md"},o=l("",23),e=[o];function t(r,c,B,i,b,u){return a(),n("div",null,e)}const d=s(p,[["render",t]]);export{A as __pageData,d as default};

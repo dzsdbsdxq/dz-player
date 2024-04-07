@@ -93,13 +93,13 @@ export default class Controller {
       this.playButton = this.controlElement.querySelector('.dz-player-play-icon') as HTMLElement
       if (!this.playButton) return
       this.playButton.innerHTML = Icons.play
-      this.playButton.addEventListener('click', this.player.togglePlay)
+      this.playButton.addEventListener('click', this.player.toggle)
     }
     private initControlPlayOrPauseButton = () => {
       // 设置控制条全屏按钮的事件处理函数
       this.controlPlayButton = this.controlElement.querySelector('.control-play') as HTMLElement
       if (!this.controlPlayButton) return
-      this.controlPlayButton.addEventListener('click', this.player.togglePlay)
+      this.controlPlayButton.addEventListener('click', this.player.toggle)
       this.controlPlayButton.innerHTML = Icons.controlPlay
     }
     private initControlFlushButton = () => {

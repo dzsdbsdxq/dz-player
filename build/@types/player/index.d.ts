@@ -34,7 +34,7 @@ export default class DzPlayer {
     destroyHls: () => void;
     play: () => Promise<void>;
     pause: () => Promise<void>;
-    togglePlay: (event?: Event) => Promise<void>;
+    toggle: (event?: Event) => Promise<void>;
     seek: (time: number) => void;
     volume(val: number | string): number;
     mute: () => void;
